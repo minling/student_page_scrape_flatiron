@@ -2,16 +2,30 @@ require 'open-uri'
 require 'nokogiri'
 require 'pry'
 
-html = open("http://web0615.students.flatironschool.com/").read
+require_relative "data_structure.rb"
 
-doc = Nokogiri::HTML(html)
+def result_of_scraper
 
-taglines = doc.search(".home-blog-post-meta").collect { |student| student.text }
+  html = open("http://web0615.students.flatironschool.com/").read
 
-names = doc.search(".big-comment a").collect { |student| student.children.text } 
+  doc = Nokogiri::HTML(html)
 
-links = doc.search(".big-comment a").collect { |student| student.attribute("href").text }
+  taglines = doc.search(".home-blog-post-meta").collect { |student| student.text }
 
-images = doc.search(".blog-thumb img").collect { |student| student.attribute("src").text }
+  names = doc.search(".big-comment a").collect { |student| student.children.text }
 
-excerpts = doc.search(".excerpt p").collect { |student| student.text }
+  links = doc.search(".big-comment a").collect { |student| student.attribute("href").text }
+
+  pictures = doc.search(".blog-thumb img").collect { |student| student.attribute("src").text }
+
+  excerpts = doc.search(".excerpt").collect { |student| student.text.strip }
+
+  names.each_with_index do |name,index| 
+    Student.new(name,taglines[index],excerpts[index],pictures[index],links[index])
+  end
+
+  Student.students_hash
+
+end
+
+
