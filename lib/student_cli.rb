@@ -29,10 +29,12 @@ end
 def get_student_info(student_object_hash, name)
 
   if student_object_hash.has_key?(name)
+    puts "******************"
     puts "Name: #{name}"  
     puts "Tagline: #{student_object_hash[name].tagline}"
     puts "Excerpt: #{student_object_hash[name].excerpt}"
     puts "Profile Link: #{student_object_hash[name].profile_link}"
+    puts "******************"
     puts "Would you like to see #{name}'s photo?"
     answer = gets.strip.downcase
     if answer == "yes"
@@ -58,10 +60,12 @@ end
 def get_profile_info(student_object_hash, name)
   # result_of_profile_scraper
   student = profile_scraper(student_object_hash[name].profile_link)
+  puts "******************"
   puts "Biography: #{student.biography}"
   puts "Education: #{student.education}"
   puts "Work: #{student.work}"
   puts "Github Link: #{student.github}"
+  puts "******************"
   puts "Would you like to view #{name}'s Github page?"
   answer = gets.strip
   if answer == "yes"
