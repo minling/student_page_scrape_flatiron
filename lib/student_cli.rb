@@ -10,6 +10,7 @@ def run(student_object_hash)
   command = nil
   help
   while command != 'exit'
+    help
     command = gets.downcase.strip
     case command
     when 'list'
@@ -26,16 +27,16 @@ def run(student_object_hash)
       case answer
       when "yes"
         # result_of_profile_scraper
-        studentProfile.new("Ben","Biography","Education","work","http://www.google.com")
-        puts profile_hash[name].biography
-        puts profile_hash[name].education
-        puts profile_hash[name].work
-        puts profile_hash[name].github
-        puts "Would you like to view #{name}'s GitHub page?"
+        StudentProfile.new("Ben","Biography","Education","work","http://www.google.com")
+        puts StudentProfile.profile_hash["Ben"].biography
+        puts StudentProfile.profile_hash["Ben"].education
+        puts StudentProfile.profile_hash["Ben"].work
+        puts StudentProfile.profile_hash["Ben"].github
+        puts "Would you like to view #{"Ben"}'s GitHub page?"
         answer = gets.strip
         case answer
         when "yes"
-          system("open #{profile_hash[name].github}")
+          system("open #{StudentProfile.profile_hash["Ben"].github}")
         end
       end
     end
