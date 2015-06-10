@@ -4,6 +4,8 @@ require 'pry'
 
 def run(student_object_hash)
 
+
+
   puts "Welcome to the Hashrockets Student Page!"
   command = nil
   help
@@ -14,12 +16,28 @@ def run(student_object_hash)
       student_object_hash.each {|student,info| puts student}
     when 'search'
       puts 'enter student'
-      command = gets.strip
-      binding.pry
-      puts student_object_hash[command].tagline
-      puts student_object_hash[command].excerpt
-      puts student_object_hash[command].picture
-      puts student_object_hash[command].profile_link
+      name = gets.strip
+      puts student_object_hash[name].tagline
+      puts student_object_hash[name].excerpt
+      puts student_object_hash[name].picture
+      puts student_object_hash[name].profile_link
+      puts "Would you like to visit #{name}'s profile page?"
+      answer = gets.strip
+      case answer
+      when "yes"
+        # result_of_profile_scraper
+        studentProfile.new("Ben","Biography","Education","work","http://www.google.com")
+        puts profile_hash[name].biography
+        puts profile_hash[name].education
+        puts profile_hash[name].work
+        puts profile_hash[name].github
+        puts "Would you like to view #{name}'s GitHub page?"
+        answer = gets.strip
+        case answer
+        when "yes"
+          system("open #{profile_hash[name].github}")
+        end
+      end
     end
   end
 end

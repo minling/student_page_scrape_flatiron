@@ -28,4 +28,15 @@ def result_of_scraper
 
 end
 
+# def result_of_profile_scraper
 
+#   name
+#   biography
+#   education
+#   work 
+#   github
+
+#   profileStudent.new(name, biography, education, work, github)
+
+
+# end 
