@@ -1,22 +1,8 @@
 require_relative "data_structure.rb"
 require_relative "scraper.rb"
-
-def mock_scrape
-  ben = Student.new('bob builder','let build','excerpt')
-  student2 = Student.new('dora explorer','everyday Im hustling','excerpt')
-  avi = Student.new('Avi','Learn. Love. Code','Flatiron School Dean')
-
-  Student.students_hash
-end
-
+require 'pry'
 
 def run(student_object_hash)
-  # TEST CODE
-  puts student_object_hash['bob builder'].name
-  puts student_object_hash['dora explorer'].tagline
-  puts student_object_hash['Avi'].tagline
-  
-  # Actual CLI
 
   puts "Welcome to the Hashrockets Student Page!"
   command = nil
@@ -29,8 +15,11 @@ def run(student_object_hash)
     when 'search'
       puts 'enter student'
       command = gets.strip
+      binding.pry
       puts student_object_hash[command].tagline
       puts student_object_hash[command].excerpt
+      puts student_object_hash[command].picture
+      puts student_object_hash[command].profile_link
     end
   end
 end
@@ -44,5 +33,4 @@ def help
 end
 
 
-
-run(mock_scrape)
+run(result_of_scraper)
