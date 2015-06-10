@@ -1,5 +1,5 @@
-require_relative "data_structure.rb"
-require_relative "scraper.rb"
+require_relative "../lib/data_structure.rb"
+require_relative "../lib/scraper.rb"
 require 'pry'
 
 
