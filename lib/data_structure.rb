@@ -18,8 +18,7 @@ class Student
 end
 
 
-class studentProfile
-  @@profile_hash = {}
+class StudentProfile
 
   attr_accessor(:name, :biography, :education, :work, :github)
   
@@ -30,9 +29,5 @@ class studentProfile
     @work = work
     @github = github
   end
-
-  def studentProfile.profile_hash
-    @@profile_hash
-  end
-
+  
 end
