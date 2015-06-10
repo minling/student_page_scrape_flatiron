@@ -1,9 +1,9 @@
 class Student
   @@students_hash = {}
 
-  attr_accessor(:name, :excerpt, :tagline, :picture, :profile_link)
+  attr_accessor(:name, :tagline, :excerpt, :picture, :profile_link)
   
-  def initialize(name,tagline,excerpt,*picture)
+  def initialize(name,tagline,excerpt,picture,profile_link)
     @name = name
     @tagline = tagline
     @excerpt = excerpt
