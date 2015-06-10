@@ -13,6 +13,7 @@ def help
   puts "- list : displays a list all students"
   puts "- search : find a particular student by full name"
   puts "- exit : exits this program"
+  puts "******************"
   puts "What would you like to do?"
 end
 
@@ -64,19 +65,22 @@ def get_profile_info(student_object_hash, name)
   puts "Biography: #{student.biography}"
   puts "Education: #{student.education}"
   puts "Work: #{student.work}"
-  puts "Github Link: #{student.github}"
+  display_social_links(student)
   puts "******************"
   puts "Would you like to view #{name}'s Github page?"
   answer = gets.strip
   if answer == "yes"
     open_github(student, name)
   elsif answer == "no"
-    help
+    
   else
     invalid_input
   end
 end
 
+def display_social_links(student)
+student.social.each {|domain, link| puts "#{domain} Link: #{link}" }
+end
 
 def open_picture(student_object_hash, name)
   system("open http://web0615.students.flatironschool.com/#{student_object_hash[name].picture}")
@@ -84,7 +88,7 @@ end
 
 
 def open_github(student, name)
-  system("open #{student.github}")
+  system("open #{student.social[2]}")
 end
 
 

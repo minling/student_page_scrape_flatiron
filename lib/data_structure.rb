@@ -20,14 +20,14 @@ end
 
 class StudentProfile
 
-  attr_accessor(:name, :biography, :education, :work, :github)
+  attr_accessor(:name, :biography, :education, :work, :social)
   
-  def initialize(name, biography, education, work, github)
+  def initialize(name, biography, education, work, social)
     @name = name
     @biography = biography
     @education = education
     @work = work
-    @github = github
+    @social = social
   end
   
 end
