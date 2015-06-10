@@ -64,7 +64,7 @@ def profile_scraper(profile_url)
     # end 
   end
 
-  binding.pry
+  # binding.pry
   
   StudentProfile.new(name, information['Biography'],information['Education'],information['Work'],social[2]) 
 
