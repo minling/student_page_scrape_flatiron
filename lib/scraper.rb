@@ -78,4 +78,3 @@ end
 # profile_scraper(students["Elaina Polson"].profile_link)
 
 
-
