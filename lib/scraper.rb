@@ -27,16 +27,3 @@ def result_of_scraper
   Student.students_hash
 
 end
-
-# def result_of_profile_scraper
-
-#   name
-#   biography
-#   education
-#   work 
-#   github
-
-#   profileStudent.new(name, biography, education, work, github)
-
-
-# end 
