@@ -16,3 +16,18 @@ class Student
     @@students_hash
   end
 end
+
+
+class StudentProfile
+
+  attr_accessor(:name, :biography, :education, :work, :github)
+  
+  def initialize(name, biography, education, work, github)
+    @name = name
+    @biography = biography
+    @education = education
+    @work = work
+    @github = github
+  end
+  
+end
