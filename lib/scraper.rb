@@ -42,8 +42,16 @@ def profile_scraper(profile_url)
   # linkedin
   # github
   # blog
-  social = profile.search("div.social-icons a").collect do |children|
-    children.attribute("href").text
+  social = {}
+
+
+  profile.search("div.social-icons a").each do |children|
+    domain_name = children.attribute("href").text.scan(/(\w*)\.com\//) 
+
+    if domain_name.empty? != true
+      domain_name = domain_name.flatten[0].capitalize
+      social[domain_name] = children.attribute("href").text
+    end
   end
 
   # biography
@@ -66,7 +74,7 @@ def profile_scraper(profile_url)
 
   # binding.pry
   
-  StudentProfile.new(name, information['Biography'],information['Education'],information['Work'],social[2]) 
+  StudentProfile.new(name, information['Biography'],information['Education'],information['Work'],social) 
 
 end
 
