@@ -8,7 +8,6 @@ def run(student_object_hash)
 
   puts "Welcome to the Hashrockets Student Page!"
   command = nil
-  help
   while command != 'exit'
     help
     command = gets.downcase.strip
@@ -27,16 +26,16 @@ def run(student_object_hash)
       case answer
       when "yes"
         # result_of_profile_scraper
-        StudentProfile.new("Ben","Biography","Education","work","http://www.google.com")
-        puts StudentProfile.profile_hash["Ben"].biography
-        puts StudentProfile.profile_hash["Ben"].education
-        puts StudentProfile.profile_hash["Ben"].work
-        puts StudentProfile.profile_hash["Ben"].github
-        puts "Would you like to view #{"Ben"}'s GitHub page?"
+        profile_scraper(student_object_hash[name].profile_link)
+        puts StudentProfile.profile_hash[name].biography
+        puts StudentProfile.profile_hash[name].education
+        puts StudentProfile.profile_hash[name].work
+        puts StudentProfile.profile_hash[name].github
+        puts "Would you like to view #{name}'s GitHub page?"
         answer = gets.strip
         case answer
         when "yes"
-          system("open #{StudentProfile.profile_hash["Ben"].github}")
+          system("open #{StudentProfile.profile_hash[name].github}")
         end
       end
     end
